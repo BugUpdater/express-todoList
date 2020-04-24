@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const todoController = require('./controllers/todoController');
 
 const app = express();
 const PORT = 3000;
@@ -12,14 +13,8 @@ const jsonParser = bodyParser.json();
 app.use(urlencodedParser);
 app.use(jsonParser);
 
-const data = [
-  { id: 1, content: 'buy flowers' },
-  { id: 2, content: 'drink coffee' },
-  { id: 3, content: 'fix code bugs' },
-];
-app.get('/todo', (req, res, next) => {
-  res.render('todo', { list: data });
-});
+// set todoController
+todoController(app);
 
 app.use('/static', express.static(path.resolve('./public')));
 
