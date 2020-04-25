@@ -13,6 +13,11 @@ const jsonParser = bodyParser.json();
 app.use(urlencodedParser);
 app.use(jsonParser);
 
+// root path redirect to todo page
+app.get('/', (req, res, next) => {
+  res.redirect('/todo');
+});
+
 // set todoController
 todoController(app);
 

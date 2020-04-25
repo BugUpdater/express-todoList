@@ -8,11 +8,14 @@ See [MongoDB Manual](https://docs.mongodb.com/manual/administration/install-comm
 - mac
 > Download tgz file and do some settings.
 ```shell
+# download tgz file
 tar -zxvf mongodb-macos-x86_64-4.2.6.tgz
 sudo cp /path/to/the/mongodb-directory/bin/* /usr/local/bin/
+
 # create db data path and log path
 sudo mkdir -p /usr/local/var/mongodb
 sudo mkdir -p /usr/local/var/log/mongodb
+
 # run mongodb service
 sudo mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
 ```
