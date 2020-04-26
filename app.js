@@ -23,6 +23,12 @@ todoController(app);
 
 app.use('/static', express.static(path.resolve('./public')));
 
+// 404
+app.use((req, res, next) => {
+  res.status(404);
+  res.json({ msg: 'Resource Not Found' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server starts at http://localhost:${PORT}`);
 });
